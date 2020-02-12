@@ -107,7 +107,7 @@ exports.Update = function(req , res){
 
 
 exports.Login =  (req , res ,  next)=>{
-    Client.find({email: req.body.email})
+    Client.findOne({email: req.body.email})
     .exec()
     .then(client =>{
         if (client.length <1) {
