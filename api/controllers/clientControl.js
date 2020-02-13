@@ -125,9 +125,10 @@ exports.Login =  (req , res ,  next)=>{
             if (result) {
                 const Token =jwt.sign(
                  {
-                    email: client[0].email,
-                    clientId: client[0]._id,
-                    secret: process.env.JWT_KEY
+                    email: client.email,
+                    clientId: client._id,
+                    password: client.password
+
                 },
             
                 process.env.JWT_KEY ,
