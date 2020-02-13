@@ -107,7 +107,7 @@ exports.Update = function(req , res){
 
 
 exports.Login =  (req , res ,  next)=>{
-    Client.findOne({email: req.body.email})
+    Client.find({email: req.body.email})
     .exec()
     .then(client =>{
         if (client.length <1) {
@@ -123,8 +123,7 @@ exports.Login =  (req , res ,  next)=>{
             }
             if (result) {
                 const Token =jwt.sign({
-                    email: client[0].email,
-                    clientId: client[0]._id
+                    client
                 },
                 process.env.JWT_KEY ,
                 {
