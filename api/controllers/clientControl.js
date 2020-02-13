@@ -125,13 +125,12 @@ exports.Login =  (req , res ,  next)=>{
             if (result) {
                 const Token =jwt.sign(
                  {
-                    email: client.email,
-                    clientId: client._id,
-                    password: client.password
-
+                    email: client[0].email,
+                    clientId: client[0]._id,
+                    
                 },
             
-                config.get().SECRET ,
+                process.env.JWT_KEY ,
                 
                 {
                     expiresIn: "1h"

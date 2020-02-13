@@ -57,7 +57,7 @@ router.get('/:doctorId' , doctorcontrollers.getdoctorinfo);
 
 
 
-router.post('/secret', (req , res , next)=>{
+router.get('/secret', (req , res , next)=>{
    
     console.log(secretKey.create('1EEA6DC-JAM4DP2-PHVYPBN-V0XCJ9X'));
 });
