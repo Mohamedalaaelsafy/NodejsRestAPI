@@ -130,7 +130,7 @@ exports.Login =  (req , res ,  next)=>{
                     
                 },
             
-                process.env.WT_KEY ,
+                process.env.JWT_KEY ,
                 
                 {
                     expiresIn: "1h"
