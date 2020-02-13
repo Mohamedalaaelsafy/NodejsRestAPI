@@ -129,7 +129,7 @@ exports.Login =  (req , res ,  next)=>{
                     clientId: client[0]._id,
                     secret: process.env.JWT_KEY
                 },
-                console.log('2st'),
+            
                 process.env.JWT_KEY ,
                 
                 {
