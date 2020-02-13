@@ -104,7 +104,7 @@ exports.signin =  (req , res ,  next)=>{
                     doctorId: doctor[0]._id
                 },
                 'secretkey',
-                process.env.JWT_KE,
+                process.env.JWT_KEY,
                 {
                     expiresIn: "1h"
                 }
