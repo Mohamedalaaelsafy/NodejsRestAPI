@@ -113,7 +113,8 @@ exports.Login =  (req , res ,  next)=>{
         if (client.length <1) {
             return res.status(401).json({
                 message:'Auth Failed'
-            })
+            }),
+            console.log('1st');
         } 
         bcrypt.compare(req.body.password , client[0].password , (err , result)=>{
             if(err){
@@ -122,10 +123,15 @@ exports.Login =  (req , res ,  next)=>{
                 })
             }
             if (result) {
-                const Token =jwt.sign({
-                    client
+                const Token =jwt.sign(
+                 {
+                    email: client[0].email,
+                    clientId: client[0]._id,
+                    secret: process.env.JWT_KEY
                 },
+                console.log('2st'),
                 process.env.JWT_KEY ,
+                
                 {
                     expiresIn: "1h"
                 },
@@ -134,7 +140,8 @@ exports.Login =  (req , res ,  next)=>{
                 return res.status(200).json({
                     message: 'Auth successful',
                     token: Token
-                })
+                }),
+                console.log('3st');
             }
             return res.status(401).json({
                 message: 'Auth Failed'
