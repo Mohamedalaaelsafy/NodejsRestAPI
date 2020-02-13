@@ -131,7 +131,7 @@ exports.Login =  (req , res ,  next)=>{
 
                 },
             
-                process.env.JWT_KEY ,
+                config.get().SECRET ,
                 
                 {
                     expiresIn: "1h"
