@@ -110,9 +110,11 @@ exports.signin =  (req , res ,  next)=>{
                 }
                 
                 );
+                const doctor1 = this.register.doctorinfo;
                 return res.status(200).json({
                     message: 'Auth successful',
-                    token: token
+                    token: token,
+                    doctor: doctor1
                 })
             }
               res.status(401).json({
