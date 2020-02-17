@@ -110,9 +110,25 @@ exports.signin =  (req , res ,  next)=>{
                 }
                 
                 );
+                const doctorinfo = new Doctor({
+                    _id: new mongoose.Types.ObjectId(),
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
+                    email: req.body.email,
+                    password: hash,
+                    description: req.body.description,
+                    specialty: req.body.specialty,
+                    location: req.body.location,
+                    city:  req.body.city,
+                    phone_number: req.body.phone_number,
+                    date: req.body.date
+                   
+                })
+                
                 return res.status(200).json({
                     message: 'Auth successful',
-                    token: token
+                    token: token,
+                    doctor: doctorinfo
                 })
             }
               res.status(401).json({
