@@ -113,7 +113,7 @@ exports.signin =  (req , res ,  next)=>{
                 return res.status(200).json({
                     message: 'Auth successful',
                     token: token,
-                    doctor: Object.assign(map(k=>({[k]:doctor})))
+                    doctor: Object.assign(('').map(k=>({[k]:doctor})))
                 })
             }
               res.status(401).json({
